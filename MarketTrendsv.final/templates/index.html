@@ -1,0 +1,60 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plotly Express Chart</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Include Plotly JS library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Link to your JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<!-- Display the chart -->
+<!-- {{ chart_div|safe }} -->
+
+<h1>Market Trends</h1>
+    
+    <!-- Dropdown menu to switch data -->
+    <div class="dropdown">
+        <button class="dropbtn">Switch Company</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="switchData('amazon')">Amazon</a>
+            <a href="#" onclick="switchData('boa')">Bank of America</a>
+            <a href="#" onclick="switchData('google')">Google</a>
+            <a href="#" onclick="switchData('mcd')">McDonald's</a>
+            <a href="#" onclick="switchData('vz')">Verizon Communications</a>
+            <!-- Add more companies as needed -->
+        </div>
+    </div>
+
+    <div>
+        <!-- Embed the chart -->
+        <iframe id="chart-iframe" src="{{ url_for('static', filename='chart.html') }}" width="800" height="600"></iframe>
+    </div>
+
+    <!-- Dropdown menu to switch data -->
+    <div class="dropdown">
+        <button class="dropbtn">Switch Company</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="switchDataLinePlot('amazon')">Amazon</a>
+            <a href="#" onclick="switchDataLinePlot('bank_of_america')">Bank of America</a>
+            <a href="#" onclick="switchDataLinePlot('google')">Google</a>
+            <a href="#" onclick="switchDataLinePlot('mcd')">McDonald's</a>
+            <a href="#" onclick="switchDataLinePlot('vz')">Verizon Communications
+            <!-- Add more companies as needed -->
+        </div>
+    </div>
+
+    <div>
+        <!-- Embed the chart -->
+        <iframe id="line-chart-iframe" src="{{ url_for('static', filename='line_chart.html') }}" width="800" height="600"></iframe>
+    </div>
+
+</body>
+</html>
